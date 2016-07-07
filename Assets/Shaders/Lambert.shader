@@ -2,7 +2,7 @@
 {
 	Properties
 	{
-		_Color("Color",Color) = (1.0,1.0,1.0)
+		_Color("Color",Color) = (1.0,1.0,1.0,1.0)
 	}
 	SubShader
 	{
@@ -30,7 +30,7 @@
 			struct VertexOutput
 			{
 				float4 pos:SV_POSITION;
-				float col: COLOR;
+				float4 col: COLOR;
 			};
 
 			//vertex function
