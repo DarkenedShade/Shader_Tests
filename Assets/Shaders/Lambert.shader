@@ -43,10 +43,10 @@
 				float atten = 1.0;
 
 				lightDirection = normalize(_WorldSpaceLightPos0.xyz);
-				float3 diffuseReflection = atten * _LightColor0.xyz * _Color.rgb * max(0.0, dot(normalDirection, lightDirection));
+				float3 diffuseReflection = atten * _LightColor0.xyz * max(0.0, dot(normalDirection, lightDirection));
+				float3 lightFinal = diffuseReflection + UNITY_LIGHTMODEL_AMBIENT.xyz;
 
-
-				vOut.col = float4(diffuseReflection,1.0);
+				vOut.col = float4(lightFinal * _Color.rgb,1.0);
 				vOut.pos = mul(UNITY_MATRIX_MVP,vIn.vertex);
 				return vOut;
 			}
